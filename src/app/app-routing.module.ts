@@ -12,8 +12,10 @@ import {CardComponent} from './pages/portifolio/card/card.component'
 //Constante - representação dos serviços de rota - um array de objeto de rota
 const routes: Routes = [
   { path:'', component: TitleComponent, pathMatch:'full'},
-  {path:'portifolio', component:CardComponent, pathMatch:'prefix'}
-//patch - caminho
+  { path:'portifolio', component:CardComponent, pathMatch:'prefix'},
+  //patch - caminho
+  //prefix já vem por padrão é interessante colocar a principal já como full pra não ter confusão nas URl's
+  { path:'**',redirectTo:''}
 ];
 
 @NgModule({
@@ -25,3 +27,20 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+/* Trechos de rotas coringas
+
+Quando o usuário acessar qualquer tipo de rota não mapeavál
+
+podemos escolher o que pode acontecer com ele tipo redirecionar pra outra pagina
+
+tipo
+
+const routes: Routes = [
+
+{path:'**',redirectTo:''}
+
+]
+
+*/
