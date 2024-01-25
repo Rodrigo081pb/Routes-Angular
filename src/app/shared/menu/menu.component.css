@@ -1,4 +1,5 @@
 .activated{
+  border: solid 1px black;
   color: red;
   font-size: larger;
 }

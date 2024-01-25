@@ -5,14 +5,19 @@ import { NgModule } from '@angular/core';
 
 //Routes (tipagem) / Router module é uma classe
 import { RouterModule, Routes } from '@angular/router';
-
 import {  TitleComponent  } from './pages/index/title/title.component'
 import {CardComponent} from './pages/portifolio/card/card.component'
 
 //Constante - representação dos serviços de rota - um array de objeto de rota
 const routes: Routes = [
   { path:'', component: TitleComponent, pathMatch:'full'},
-  { path:'portifolio', component:CardComponent, pathMatch:'prefix'},
+  //portfolio
+  //portfolio/1
+  //portfolio/1/child
+  { path:'portifolio', component: CardComponent, children:[
+    { path:':id', component:CardComponent},
+    { path:':id/child', component:CardComponent},
+  ]},
   //patch - caminho
   //prefix já vem por padrão é interessante colocar a principal já como full pra não ter confusão nas URl's
   { path:'**',redirectTo:''}
